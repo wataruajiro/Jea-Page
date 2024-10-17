@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const path = require('path');
 const { handleMessage } = require('./includes/handle/handleMessage');
 const { handlePostback } = require('./includes/handle/handlePostback');
 const config = require('./config.json');
@@ -13,6 +14,14 @@ app.use(bodyParser.json());
 const VERIFY_TOKEN = 'pagebot';
 
 const PAGE_ACCESS_TOKEN = fs.readFileSync('token.txt', 'utf8').trim();
+
+// Serve static files
+app.use(express.static('public'));
+
+// WebView route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'includes', 'index.html'));
+});
 
 app.get('/webhook', (req, res) => {
   const mode = req.query['hub.mode'];

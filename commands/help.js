@@ -6,7 +6,7 @@ exports.config = {
   description: 'Show available commands',
   author: 'System',
   category: 'system',
-  guide: 'No arguments required'
+  guide: ''
 };
 
 exports.initialize = async function({ senderId, args, token, bot }) {
