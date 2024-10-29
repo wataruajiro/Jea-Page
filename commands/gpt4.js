@@ -11,7 +11,7 @@ exports.config = {
 exports.initialize = async function({ senderId, args, token, bot }) {
   const prompt = args.join(' ');  // Joins arguments with a space
   try {
-    const apiUrl = `https://deku-rest-apis.ooguy.com/gpt4?prompt=${encodeURIComponent(prompt)}&uid=100${senderId}`;
+    const apiUrl = `https://joshweb.click/gpt4?prompt=${encodeURIComponent(prompt)}&uid=100${senderId}`;
     const response = await axios.get(apiUrl);
     const text = response.data.gpt4;
 
