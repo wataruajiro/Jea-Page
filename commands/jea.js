@@ -32,4 +32,3 @@ exports.initialize = async function({ senderId, args, token, bot }) {
     bot.send(senderId, { text: 'Sorry, there was an error processing your request.' }, token);
   }
 };
-      
